@@ -1,6 +1,7 @@
 # Compiled source #
 ###################
 *.class
+*.pyc
 
 # Web Projects #
 ################
@@ -24,6 +25,7 @@ src/main/webapp/WEB-INF/classes/
 *.log
 *.sql
 *.sqlite
+*.db
 
 # OS generated files #
 ######################
