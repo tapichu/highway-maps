@@ -32,3 +32,10 @@ ESTADOS_CHOICES = (
     (u'YUCATAN', u'Yucat\u00e1n'),
     (u'ZACATECAS', u'Zacatecas'),
 )
+
+TIPO_RED_CHOICES = (
+    (u'B', u'B\u00e1sica'),
+    (u'S', u'Secundaria'),
+    (u'C', u'Corredor'),
+)
+
