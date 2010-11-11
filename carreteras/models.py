@@ -60,6 +60,9 @@ class Carretera(models.Model):
 class Tramo(LineGeoLocation):
     carretera = models.ForeignKey(Carretera)
     nombre = models.CharField(max_length=100)
+    estados = models.ManyToManyField(Estado)
+    municipios = models.ManyToManyField(Municipio)
+    localidad = models.ForeignKey(Localidad)
     corredor = models.ForeignKey(Corredor, blank=True)
     tipo_red = models.CharField(max_length=1, choices=TIPO_RED_CHOICES)
     km_inicio = models.DecimalField(max_digits=10, decimal_places=4)
