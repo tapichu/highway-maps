@@ -5,3 +5,278 @@ body {
     font: 1em Arial;
     display: block;
 }
+
+#cuerpo_principal {
+    width: 61em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1em;
+}
+
+#encabezado {
+    display: table;
+    overflow: hidden;
+    height: 9.8em;
+    width: 100%;
+}
+
+#barra_herramientas {
+    overflow: hidden;
+    height: 1.5em;
+    background-color: transparent;
+    display: table;
+    width: 100%;
+    padding-top: .4em;
+    padding-bottom: .4em;
+}
+
+#login {
+    width: 30em;
+    float: left;
+    padding-left: 1em;
+}
+
+#login Input {
+    border: 1px solid gray;
+    color: #5b5b76;
+    font-size: 12px;
+    margin:0;
+    padding:2px;
+    background-position: center top;
+    width: 9em;
+}
+
+#herramientas {
+    width: 29em;
+    float: right;
+    padding-right: 1em;
+    padding-top: .5em;
+    text-align: right;
+    color: #62AC1E;
+}
+
+#herramientas a {
+    text-decoration: none;
+    font-size: .8em;
+    color: #414040;
+}
+
+#herramientas a:hover {
+    text-decoration: none;
+}
+
+#firma_busqueda {
+    height: 5em;
+    display: block;
+    overflow: hidden;
+    background-image: url(/static/css/img/sct.jpg);
+}
+
+#firma {
+    height: 5em;
+    width: 30em;
+    float: left;
+    display: table;
+}
+
+#firma a {
+    height: 5em;
+    width: 20em;
+}
+
+#firma_nombre {
+    color: white;
+    width: 14em;
+    height: 4em;
+    display: block;
+    float: left;
+    text-align: center;
+    padding: .5em;
+}
+
+#buscar {
+    display: table;
+    float: right;
+    padding-right: 1em;
+    height: 2.5em;
+    padding-top: .2em;
+    text-align: right;
+
+}
+
+#dominio {
+    color: white;
+    font-size: 2em;
+}
+
+.letra_menu {
+    font-size: 13px;
+}
+
+.letra_menor {
+    font-size: .8em;
+}
+
+.menu_principal {
+    height: 2.5em;
+    display: block;
+    overflow: hidden;
+    background-image: url(/static/css/img/fondo_menu.jpg);
+    margin-top: 0;
+}
+
+.menu_principal ul{
+    height: 2em;
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align: center;
+}
+
+.menu_principal li{
+    display: inline-block;
+    font-weight: bold;
+    background-color: transparent;
+    margin-bottom: 0;
+    /*font-variant: small-caps;*/
+}
+
+.menu_principal li a{
+    color: white;
+    display:block;
+    line-height: 2em;
+    text-align:center;
+    text-decoration:none;
+    padding: 0px .5em;
+}
+
+.menu_principal li a:hover{
+    text-decoration: none;
+}
+            
+.menu_principal li ul{
+    background: #737373;
+    border-bottom: 2px solid #ff0;
+    display:none;
+    height:auto;
+    filter:alpha(opacity=95);
+    opacity:0.95;
+    position:absolute;
+    width: 10em;
+    z-index:200;
+    margin-top: -1px;
+}
+.menu_principal li:hover ul{
+    display:block;
+}
+.menu_principal li li {
+    display:block;
+    float:none;
+    padding: 0;
+    width: 10em;
+    margin: 0;
+    font-weight: normal;
+    font-style: normal;
+    background: url(/static/css/img/bullet_menu.png) no-repeat 5px;
+    color: white;
+}
+.menu_principal li ul a{
+    display:block;
+    font-size:12px;
+    font-style:normal;
+    padding:0px 10px 0px 15px;
+    text-align:left;
+}
+.menu_principal li ul a:hover{
+    opacity:1.0;
+    filter:alpha(opacity=100);
+    text-decoration: underline;
+}
+
+#submenu1, #submenu2, #submenu3, #submenu4, #submenu5 {
+    width: 20.4em;
+}
+
+#submenu4 li, #submenu1 li, #submenu2 li, #submenu3 li, #submenu4 li, #submenu5 li {
+    display: inline-block;
+}
+
+#cuerpo {
+    background-color: white;
+    display: table;
+    padding: 1em;
+    width: auto;
+    height:1px;
+    float: left;
+    height: auto;
+}
+
+#pie {
+    border-top: 1px solid #dedde0;
+    color: gray;
+    background-color: white;
+    display: table;
+    border-bottom-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+#pie a {
+    color: gray;
+    text-decoration: none;
+}
+
+#pie p {
+    margin: 0;
+    font-size: .8em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    color: gray;
+}
+
+#pie_b {
+    width: 59em;
+    background-image: url(/static/css/img/pie1.jpg);
+    height: .5em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pie_d {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #dedde0;
+    height: 8em;
+    background: url(/static/css/img/pie.jpg) center;
+}
+
+hr {
+    margin: 2em 1em;
+}
+
+ul {
+    margin-left: .5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+li {
+    line-height: 1.1em;
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
+li li {
+    list-style-type: disc;
+    line-height: 1em;
+    margin-bottom: .1em;
+    padding-bottom: 0;
+    list-style-position: inside;
+}
+
+#container {
+    background-color: white;
+}
+

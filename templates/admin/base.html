@@ -15,8 +15,10 @@
 
 <body class="{% if is_popup %}popup {% endif %}">
 
-<div id="cuerpo-principal">
-    <div id="encabezado"></div>
+<div id="cuerpo_principal">
+    <div id="encabezado">
+        {% block headersct %}{% endblock %}
+    </div>
 
     <!-- Container -->
     <div id="container" class="{% block bodyclass %}{% endblock %}">
@@ -82,7 +84,9 @@
     </div>
     <!-- END Container -->
 
-    <div id="pie"></div>
+    <div id="pie">
+        {% block footersct %}{% endblock %}
+    </div>
 </div>
 <!-- END cuerpo principal -->
 
