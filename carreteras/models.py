@@ -35,15 +35,17 @@ class Localidad(models.Model):
 
 class Ruta(models.Model):
     numero = models.IntegerField()
+    nombre = models.CharField(max_length=100)
 
     def __unicode__(self):
-        return "MEX-" + self.numero
+        return 'MEX-' + str(self.numero)
 
 class Corredor(models.Model):
     numero = models.IntegerField()
+    nombre = models.CharField(max_length=100)
 
     def __unicode__(self):
-        return "C-" + self.numero
+        return 'C-' + str(self.numero)
 
     class Meta:
         verbose_name_plural = 'Corredores'

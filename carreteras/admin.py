@@ -16,10 +16,14 @@ class LocalidadAdmin(admin.ModelAdmin):
     search_fields = ['nombre']
 
 class RutaAdmin(admin.ModelAdmin):
-    search_fields = ['numero']
+    list_display = ('__unicode__', 'nombre')
+    search_fields = ['numero', 'nombre']
+    ordering = ['numero']
 
 class CorredorAdmin(admin.ModelAdmin):
-    search_fields = ['numero']
+    list_display = ('__unicode__', 'nombre')
+    search_fields = ['numero', 'nombre']
+    ordering = ['numero']
 
 class CarreteraAdmin(admin.ModelAdmin):
     fieldsets = [
