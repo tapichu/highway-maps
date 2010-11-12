@@ -2,12 +2,14 @@ from carreteras.models import *
 from django.contrib import admin
 
 class EstadoAdmin(admin.ModelAdmin):
-    search_fields = ['nombre']
+    search_fields = ['^nombre']
+    ordering = ['nombre']
 
 class MunicipioAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'estado')
     list_filter = ['estado']
     search_fields = ['nombre']
+    ordering = ['estado', 'nombre']
 
 class LocalidadAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'municipio')
@@ -42,6 +44,7 @@ class TramoAdmin(admin.ModelAdmin):
     ]
     list_display = ('nombre', 'carretera', 'corredor', 'origen', 'destino')
     list_filter = ['carretera', 'corredor', 'tipo_red', 'carriles', 'cuerpos']
+    filter_horizontal = ['estados', 'municipios']
     search_fields = ['nombre', 'carretera']
 
 class SubtramoAdmin(admin.ModelAdmin):
