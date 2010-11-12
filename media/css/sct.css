@@ -1,0 +1,7 @@
+body {
+    background: #f9faff url("/static/css/img/background.jpg") no-repeat fixed center top;
+    color: #2F2F2F;
+    margin: 0;
+    font: 1em Arial;
+    display: block;
+}
