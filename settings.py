@@ -78,9 +78,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'poc_sct.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    '/home/eduardo/Documents/git_repos/sct/poc_sct/templates',
 )
 
 INSTALLED_APPS = (
