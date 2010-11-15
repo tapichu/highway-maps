@@ -1,4 +1,5 @@
 ESTADOS_CHOICES = (
+    (u'', u'Seleccione una opci\u00f3n'),
     (u'AGUASCALIENTES', u'Aguascalientes'),
     (u'BAJA CALIFORNIA', u'Baja California'),
     (u'BAJA CALIFORNIA SUR', u'Baja California Sur'),

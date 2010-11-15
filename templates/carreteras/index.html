@@ -1,4 +1,28 @@
 {% extends "carreteras/base_carreteras.html" %}
 
 {% block content %}
+<div id="buscadorApp">
+    <div id="search">
+        <form action="/carreteras/search/" method="post">
+        {% csrf_token %}
+            <label>Buscar por:</label>
+            <input type="radio" name="tipo" id="porEstado" value="porEstado" checked />
+            <label for="porEstado">Estado</label>
+            <input type="radio" name="tipo" id="porMunicipio" value="porMunicipio" />
+            <label for="porMunicipio">Municipio</label>
+            <input type="radio" name="tipo" id="porLocalidad" value="porLocalidad" />
+            <label for="porLocalidad">Localidad</label>
+            <br/><br/>
+            <select id="estadoOptions" name="estado">
+            {% for id, value in estados %}
+                <option value="{{ id }}">{{ value }}</option>
+            {% endfor %}
+            </select>
+            <input type="search" name="searchText" id="searchText" size="30" maxlength="50" />
+            <br/><br/>
+            <input type="submit" value="Buscar"/>
+        </form>
+    </div>
+    <div id="searchResults"></div>
+</div>
 {% endblock %}
