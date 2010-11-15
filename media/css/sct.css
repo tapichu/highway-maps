@@ -281,3 +281,10 @@ li li {
     background-color: white;
 }
 
+#buscadorApp {
+    font-size: 0.8em;
+}
+
+#buscadorApp input[type="radio"] {
+    margin-top: -3px;
+}

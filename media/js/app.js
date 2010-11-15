@@ -1,9 +1,16 @@
 (function() {
 
-    require(['views/AppView'],
-        function(AppView) {
+    require(
+        ['views/AppView', 'controllers/SearchController'],
+        function(AppView, SearchController) {
             require.ready(function() {
-                var App = new AppView;
+
+                // Handle the application's searches
+                var controller = new SearchController;
+                Backbone.history.start();
+
+                var app = new AppView;
+
             });
         }
     );

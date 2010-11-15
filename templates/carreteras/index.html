@@ -6,11 +6,11 @@
         <form action="/carreteras/search/" method="post">
         {% csrf_token %}
             <label>Buscar por:</label>
-            <input type="radio" name="tipo" id="porEstado" value="porEstado" checked />
+            <input type="radio" name="searchType" id="porEstado" value="porEstado" checked />
             <label for="porEstado">Estado</label>
-            <input type="radio" name="tipo" id="porMunicipio" value="porMunicipio" />
+            <input type="radio" name="searchType" id="porMunicipio" value="porMunicipio" />
             <label for="porMunicipio">Municipio</label>
-            <input type="radio" name="tipo" id="porLocalidad" value="porLocalidad" />
+            <input type="radio" name="searchType" id="porLocalidad" value="porLocalidad" />
             <label for="porLocalidad">Localidad</label>
             <br/><br/>
             <select id="estadoOptions" name="estado">
@@ -20,7 +20,7 @@
             </select>
             <input type="search" name="searchText" id="searchText" size="30" maxlength="50" />
             <br/><br/>
-            <input type="submit" value="Buscar"/>
+            <input type="submit" id="searchButton" value="Buscar"/>
         </form>
     </div>
     <div id="searchResults"></div>
