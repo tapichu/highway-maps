@@ -6,9 +6,10 @@
 {% endblock %}
 
 {% block extrahead %}
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.4.4.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/require-jquery-1.4.4.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/underscore.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/backbone.js"></script>
+<script type="text/javascript">require(["app"]);</script>
 {% endblock %}
 
 {% block extrastyle %}{{ block.super }}{% endblock %}
