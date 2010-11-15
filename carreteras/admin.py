@@ -14,6 +14,7 @@ class MunicipioAdmin(admin.ModelAdmin):
 class LocalidadAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'municipio')
     search_fields = ['nombre']
+    ordering = ['municipio', 'nombre']
 
 class RutaAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'nombre')
@@ -33,6 +34,7 @@ class CarreteraAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'ruta', 'identificador_nacional')
     list_filter = ['ruta']
     search_fields = ['nombre', 'identificador_nacional']
+    ordering = ['ruta', 'nombre']
 
 class TramoAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -46,10 +48,11 @@ class TramoAdmin(admin.ModelAdmin):
             'classes': ['collapse']
         }),
     ]
-    list_display = ('nombre', 'carretera', 'corredor', 'origen', 'destino')
-    list_filter = ['carretera', 'corredor', 'tipo_red', 'carriles', 'cuerpos']
+    list_display = ('nombre', 'carretera', 'corredor', 'origen', 'destino', 'longitud')
+    list_filter = ['tipo_red', 'carriles', 'cuerpos', 'corredor', 'carretera']
     filter_horizontal = ['estados', 'municipios']
     search_fields = ['nombre', 'carretera']
+    ordering = ['carretera', 'nombre']
 
 class SubtramoAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -63,6 +66,7 @@ class SubtramoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'tramo', 'km_inicio', 'km_fin')
     list_filter = ['tramo']
     search_fields = ['nombre', 'tramo']
+    ordering = ['tramo', 'nombre']
 
 admin.site.register(Estado, EstadoAdmin)
 admin.site.register(Municipio, MunicipioAdmin)
