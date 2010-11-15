@@ -5,13 +5,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^poc_sct/', include('poc_sct.foo.urls')),
-
+    (r'^carreteras/', include('carreteras.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
 
+# Serve static content in development environment
 if settings.DEBUG:
     from django.views.static import serve
     _media_url = settings.MEDIA_URL

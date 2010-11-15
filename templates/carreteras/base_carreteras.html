@@ -1,0 +1,14 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Portal SCT Carreteras' %}</h1>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
