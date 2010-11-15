@@ -57,7 +57,7 @@ class Carretera(models.Model):
     fecha_modificacion = models.DateTimeField(u'Fecha \u00faltima modificaci\u00f3n', auto_now=True)
 
     def __unicode__(self):
-        return self.identificadorNacional + ": " + self.nombre
+        return self.nombre
 
 class Tramo(LineGeoLocation):
     carretera = models.ForeignKey(Carretera)
@@ -65,7 +65,7 @@ class Tramo(LineGeoLocation):
     estados = models.ManyToManyField(Estado)
     municipios = models.ManyToManyField(Municipio)
     localidad = models.ForeignKey(Localidad)
-    corredor = models.ForeignKey(Corredor, blank=True)
+    corredor = models.ForeignKey(Corredor, blank=True, null=True)
     tipo_red = models.CharField(max_length=1, choices=TIPO_RED_CHOICES)
     km_inicio = models.DecimalField(max_digits=10, decimal_places=4)
     km_fin = models.DecimalField(max_digits=10, decimal_places=4)
@@ -80,7 +80,7 @@ class Tramo(LineGeoLocation):
         return self.nombre
 
     def longitud(self):
-        return self.km_fin - self.km_inicio;
+        return float(self.km_fin) - float(self.km_inicio);
 
 class Subtramo(LineGeoLocation):
     tramo = models.ForeignKey(Tramo)
@@ -93,5 +93,5 @@ class Subtramo(LineGeoLocation):
         return self.nombre
 
     def longitud(self):
-        return self.km_fin - self.km_inicio;
+        return float(self.km_fin) - float(self.km_inicio);
 
