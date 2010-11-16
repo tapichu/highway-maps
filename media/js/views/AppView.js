@@ -22,6 +22,7 @@ define(function() {
             this.searchTypeGroup = this.$('input[name="searchType"]');
             this.estadosSelect = this.$('#estadoOptions');
             this.searchTextInput = this.$('#searchText');
+            this.searchResults = this.$('#searchResults');
 
             // Hide the search input, the default search type is estados
             this.searchTextInput.hide();
