@@ -1,4 +1,4 @@
-define(function() {
+define(['ajax_util'], function(ajax_util) {
 
     var SearchController = Backbone.Controller.extend({
         
@@ -12,6 +12,13 @@ define(function() {
 
         searchEstados: function(query) {
             console.log('Searching for estado: ' + query);
+            ajax_util.ajaxCall({
+                url: 'search/estado/' + query,
+                data: {},
+                success: function(data) {
+                    console.log(data);
+                }
+            });
         },
 
         searchMunicipios: function(query) {
