@@ -2,12 +2,12 @@ import simplejson as json
 
 def carreteraToDict(carretera):
     return {
-        'pk': carretera.pk,
+        'id': carretera.pk,
         'nombre': carretera.nombre,
         'identificador_nacional': carretera.identificador_nacional,
         'ruta': {
-            'pk': carretera.ruta.pk,
-            'id': str(carretera.ruta),
+            'id': carretera.ruta.pk,
+            'label': str(carretera.ruta),
             'numero': carretera.ruta.numero,
             'nombre': carretera.ruta.nombre
         }
