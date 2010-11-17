@@ -28,7 +28,7 @@ def tramoToDict(tramo):
         'estados': [estado.nombre for estado in tramo.estados.all()],
         'municipios': [municipio.nombre for municipio in tramo.municipios.all()],
         'localidad': tramo.localidad.nombre,
-        'corredor': str(tramo.corredor),
+        'corredor': tramo.corredor and str(tramo.corredor) or '',
         'tipo_red': tramo.tipo_red,
         'km_inicio': float(str(tramo.km_inicio)),
         'km_fin': float(str(tramo.km_fin)),
