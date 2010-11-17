@@ -15,6 +15,8 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
             this.model.bind('change', this.render);
 
             this.animationSpeed = params && params.animationSpeed || 500;
+            this.zoom = params && params.zoom || 9;
+
             if (typeof google !== undefined) {
                 this.directionDisplay = new google.maps.DirectionsRenderer();
             }
@@ -48,7 +50,7 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
                     if (tramos.length > 0) {
                         var latlng = that.calculateMapCenter(tramos);
                         var options = {
-                            zoom: 7,
+                            zoom: that.zoom,
                             center: latlng,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         };
@@ -118,6 +120,9 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
             window.APP.directionsService.route(request, function(response, status) {
                 if (status === google.maps.DirectionsStatus.OK) {
                     that.directionDisplay.setDirections(response);
+                    $('body').animate({
+                        scrollTop: $(that.el).offset().top - 10
+                    }, that.animationSpeed);
                 }
             });
         }
