@@ -18,8 +18,19 @@ def index(request):
 
 def searchEstado(request, estado):
     estado = estado.replace('__', ' ')
-    print estado
     carreteras = Carretera.objects.filter(tramos__estados__nombre__exact=estado).distinct()
+    data = encoders.carreterasToJson(carreteras)
+    return HttpResponse(data)
+
+def searchLocalidad(request, localidad):
+    localidad = localidad.replace('__', ' ')
+    carreteras = Carretera.objects.filter(tramos__localidad__nombre__contains=localidad).distinct()
+    data = encoders.carreterasToJson(carreteras)
+    return HttpResponse(data)
+
+def searchMunicipio(request, municipio):
+    municipio = municipio.replace('__', ' ')
+    carreteras = Carretera.objects.filter(tramos__municipios__nombre__contains=municipio).distinct()
     data = encoders.carreterasToJson(carreteras)
     return HttpResponse(data)
 
