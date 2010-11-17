@@ -280,3 +280,7 @@ li li {
 #container {
     background-color: white;
 }
+
+#changelist {
+    overflow: auto;
+}
