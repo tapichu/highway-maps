@@ -295,6 +295,7 @@ li li {
 
 #carreteraTable {
     border: 1px solid #CCC;
+    width: 100%;
 }
 
 #carreteraTable th {
@@ -308,12 +309,21 @@ li li {
 }
 
 #details {
-    width: 65%;
+    width: 100%;
 }
 
 #details h2 {
     color: #666;
     font-size: 16px;
+    padding-left: 2px;
+    background: #EEE;
+}
+
+#details h3 {
+    color: #666;
+    font-size: 14px;
+    padding-left: 2px;
+    background: #EFEFEF;
 }
 
 #details label {
@@ -326,4 +336,9 @@ li li {
 
 #detailsRight {
     float: right;
+}
+
+#tramos {
+    clear: both;
+    padding-top: 5px;
 }

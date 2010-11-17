@@ -26,8 +26,6 @@
     </div>
     <br/>
     <div id="searchResults"></div>
-    <br/>
-    <div id="details"></div>
 
     <script type="text/template" id="carretera-table-tmpl">
         <table id="carreteraTable">
@@ -39,6 +37,7 @@
                 </tr>
             </thead>
         </table>
+        <br/>
     </script>
     <script type="text/template" id="carretera-tmpl">
         <td><%= nombre ? nombre : '' %></td>
@@ -48,12 +47,42 @@
     <script type="text/template" id="details-tmpl">
         <h2>Detalle</h2>
         <div id="detailsLeft">
-        <label>Nombre: </label><%= nombre ? nombre : '' %><br/>
-        <label>Ruta: </label><%= ruta ? (ruta.label ? ruta.label : '') : '' %><br/>
+            <label>Nombre: </label><%= nombre ? nombre : '' %><br/>
+            <label>Ruta: </label><%= ruta ? (ruta.label ? ruta.label : '') : '' %><br/>
         </div>
         <div id="detailsRight">
-        <label>Identificador Nacional: </label><%= identificador_nacional ? identificador_nacional : '' %><br/>
+            <label>Identificador Nacional: </label>
+            <%= identificador_nacional ? identificador_nacional : '' %><br/>
         </div>
+        <div id="tramos">
+            <h3>Tramos</h3>
+            <table id="tramosTable">
+                <thead>
+                    <tr>
+                        <th width="16%">Nombre</th>
+                        <th width="6%">Corredor</th>
+                        <th width="10%">Origen</th>
+                        <th width="10%">Destino</th>
+                        <th width="6%">Longitud</th>
+                        <th width="16%">Estados</th>
+                        <th width="16%">Municipios</th>
+                        <th width="16%">Localidad</th>
+                        <th width="4%">Carriles</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </script>
+    <script type="text/template" id="tramo-tmpl">
+        <td><%= nombre ? nombre : '' %></td>
+        <td><%= corredor ? corredor : '' %></td>
+        <td><%= origen ? origen : '' %></td>
+        <td><%= destino ? destino : '' %></td>
+        <td><%= longitud ? longitud : '' %> km</td>
+        <td><%= estados ? _.reduce(estados, function(memo, e) { return memo + ', ' + m; }) : '' %></td>
+        <td><%= municipios ? _.reduce(municipios, function(memo, m) { return memo + ', ' + m; }) : '' %></td>
+        <td><%= localidad ? localidad : '' %></td>
+        <td><%= carriles ? carriles : '' %></td>
     </script>
 </div>
 {% endblock %}

@@ -1,15 +1,17 @@
-define(function() {
+define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
 
     var CarreteraDetailView = Backbone.View.extend({
 
-        el: $('#details'),
+        tagName: 'div',
+
+        id: 'details',
 
         template: _.template($('#details-tmpl').html()),
 
         events: {},
 
         initialize: function() {
-            this.el.empty();
+            $('#details').remove();
 
             _.bindAll(this, 'render');
 
@@ -17,7 +19,16 @@ define(function() {
         },
 
         render: function() {
-            this.el.append(this.template(this.model.toJSON()));
+            $(this.el)
+                .append(this.template(this.model.toJSON()))
+                .appendTo($('#searchResults'));
+            _.each(this.model.get('tramos'), this.addTramo, this);
+        },
+
+        addTramo: function(element, index) {
+            var tramo = new Tramo(element);
+            var view = new TramoView({model: tramo});
+            this.$('#tramosTable').append(view.render(index).el);
         }
 
     });
