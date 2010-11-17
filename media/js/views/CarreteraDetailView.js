@@ -15,7 +15,9 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
             this.model.bind('change', this.render);
 
             this.animationSpeed = params && params.animationSpeed || 500;
-            this.directionDisplay = new google.maps.DirectionsRenderer();
+            if (typeof google !== undefined) {
+                this.directionDisplay = new google.maps.DirectionsRenderer();
+            }
         },
 
         render: function() {
@@ -40,24 +42,26 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
             _.each(this.model.get('tramos'), this.addTramo, this);
             // Show section
             $this.slideDown(this.animationSpeed, function() {
-                // Render map
-                var tramos = that.model.get('tramos');
-                var latlng = that.calculateMapCenter(tramos);
-                var options = {
-                    zoom: 7,
-                    center: latlng,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(that.$('#map')[0], options);
-                that.directionDisplay.setMap(map);
+                if (typeof google !== "undefined") {
+                    // Render map
+                    var tramos = that.model.get('tramos');
+                    var latlng = that.calculateMapCenter(tramos);
+                    var options = {
+                        zoom: 7,
+                        center: latlng,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var map = new google.maps.Map(that.$('#map')[0], options);
+                    that.directionDisplay.setMap(map);
 
-                _.each(tramos, function(tramo) {
-                    that.addTramoMarkers(map, tramo);
-                });
+                    _.each(tramos, function(tramo) {
+                        that.addTramoMarkers(map, tramo);
+                    });
 
-                // Add directions for the biggest route
-                var tramo = _.max(tramos, function(t) { return t.longitud; });
-                that.calculateRoute(tramo);
+                    // Add directions for the biggest route
+                    var tramo = _.max(tramos, function(t) { return t.longitud; });
+                    that.calculateRoute(tramo);
+                }
             });
         },
 

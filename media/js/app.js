@@ -17,8 +17,9 @@
                     collection: carreterasList
                 });
 
-                APP.directionsService = new google.maps.DirectionsService();
-
+                if (typeof google !== "undefined") {
+                    APP.directionsService = new google.maps.DirectionsService();
+                }
             });
         }
     );
