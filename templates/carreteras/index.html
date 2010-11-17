@@ -1,6 +1,7 @@
 {% extends "carreteras/base_carreteras.html" %}
 
 {% block content %}
+<br/>
 <div id="buscadorApp">
     <div id="search">
         <form action="/carreteras/search/" method="post">
@@ -23,6 +24,26 @@
             <input type="submit" id="searchButton" value="Buscar"/>
         </form>
     </div>
+    <br/>
     <div id="searchResults"></div>
+    <br/>
+    <div id="details"></div>
+
+    <script type="text/template" id="carretera-table-tmpl">
+        <table id="carreteraTable">
+            <thead>
+                <tr>
+                    <th width="50%">Nombre</th>
+                    <th width="25%">Ruta</th>
+                    <th width="25%">Identificador Nacional</th>
+                </tr>
+            </thead>
+        </table>
+    </script>
+    <script type="text/template" id="carretera-tmpl">
+        <td><%= nombre ? nombre : '' %></td>
+        <td><%= ruta ? (ruta.label ? ruta.label : '') : '' %></td>
+        <td><%= identificador_nacional ? identificador_nacional : '' %></td>
+    </script>
 </div>
 {% endblock %}

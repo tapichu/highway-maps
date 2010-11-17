@@ -1,4 +1,4 @@
-define(function() {
+define(['./CarreteraView'], function(CarreteraView) {
 
     var SEARCH_TYPE = {
         ESTADO: 'porEstado',
@@ -10,14 +10,21 @@ define(function() {
 
         el: $('#buscadorApp'),
 
+        template: _.template($('#carretera-table-tmpl').html()),
+
         events: {
             'click input[name="searchType"]': 'searchTypeChanged',
             'click #searchButton': 'search'
         },
 
-        initialize: function() {
-            _.bindAll(this, 'render', 'getSearchType');
+        initialize: function(params) {
+            this.collection = params.collection;
+            
+            _.bindAll(this, 'render', 'addOne', 'addAll', 'getSearchType');
 
+            // Listen for changes in the model
+            this.collection.bind('refresh', this.addAll);
+            
             // Cache useful query results
             this.searchTypeGroup = this.$('input[name="searchType"]');
             this.estadosSelect = this.$('#estadoOptions');
@@ -29,7 +36,17 @@ define(function() {
         },
         
         render: function() {
+            this.searchResults.empty().html(this.template({}));
+        },
 
+        addOne: function(carretera, index) {
+            var view = new CarreteraView({model: carretera});
+            this.$('#carreteraTable').append(view.render(index).el);
+        },
+
+        addAll: function() {
+            this.render();
+            this.collection.each(this.addOne);
         },
 
         getSearchType: function() {

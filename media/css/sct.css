@@ -288,3 +288,21 @@ li li {
 #buscadorApp input[type="radio"] {
     margin-top: -3px;
 }
+
+.portalExterno {
+    width: 97%
+}
+
+#carreteraTable {
+    border: 1px solid #CCC;
+}
+
+#carreteraTable th {
+    border-top: 1px solid #DDD;
+}
+
+#carreteraTable th,td {
+    border-color: #CCC;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+}

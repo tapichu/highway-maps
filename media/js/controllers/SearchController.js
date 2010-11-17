@@ -1,4 +1,4 @@
-define(['ajax_util'], function(ajax_util) {
+define(['models/CarreteraList'], function(CarreteraList) {
 
     var SearchController = Backbone.Controller.extend({
         
@@ -8,25 +8,28 @@ define(['ajax_util'], function(ajax_util) {
             'search/localidad/:query':  'searchLocalidades'
         },
 
-        initialize: function() {},
+        initialize: function(params) {
+            this.collection = params.collection;
+        },
 
         searchEstados: function(query) {
-            console.log('Searching for estado: ' + query);
-            ajax_util.ajaxCall({
-                url: 'search/estado/' + query,
-                data: {},
-                success: function(data) {
-                    console.log(data);
-                }
-            });
+            this.collection.type = 'estado';
+            this.search(query);
         },
 
         searchMunicipios: function(query) {
-            console.log('Searching for municipios: ' + query);
+            this.collection.type = 'municipio';
+            this.search(query);
         },
 
         searchLocalidades: function(query) {
-            console.log('Searching for localidades: ' + query);
+            this.collection.type = 'localidad';
+            this.search(query);
+        },
+
+        search: function(query) {
+            this.collection.filter = query;
+            this.collection.fetch();
         }
 
     });

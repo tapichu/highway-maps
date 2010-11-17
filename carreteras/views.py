@@ -17,6 +17,8 @@ def index(request):
     context_instance=RequestContext(request))
 
 def searchEstado(request, estado):
+    estado = estado.replace('__', ' ')
+    print estado
     carreteras = Carretera.objects.filter(tramos__estados__nombre__exact=estado).distinct()
     data = encoders.carreterasToJson(carreteras)
     return HttpResponse(data)
