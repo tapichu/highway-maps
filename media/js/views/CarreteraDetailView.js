@@ -50,6 +50,9 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 var map = new google.maps.Map(that.$('#map')[0], options);
+                var directionDisplay = new google.maps.DirectionsRenderer();
+                directionDisplay.setMap(map);
+                that.addTramoMarkers(map, directionDisplay, tramo);
             });
         },
 
@@ -65,6 +68,32 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
             var dLon = Math.abs(lonStart - lonEnd) / 2.0;
             var longitude = lonStart > lonEnd ? lonStart - dLon : lonEnd + dLon;
             return new google.maps.LatLng(latitude, longitude);
+        },
+
+        addTramoMarkers: function(map, directionDisplay, tramo) {
+            var latlngStart = new google.maps.LatLng(tramo.latitud_inicio, tramo.longitud_inicio);
+            var latlngEnd = new google.maps.LatLng(tramo.latitud_fin, tramo.longitud_fin);
+
+            var request = {
+                origin: latlngStart,
+                destination: latlngEnd,
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            };
+            window.APP.directionsService.route(request, function(response, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionDisplay.setDirections(response);
+                } else {
+                    // Fallback to markers
+                    var start = new google.maps.Marker({
+                        position: latlngStart,
+                        map: map
+                    });
+                    var end = new google.maps.Marker({
+                        position: latlngEnd,
+                        map: map
+                    });
+                }
+            });
         }
 
     });

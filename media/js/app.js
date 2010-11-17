@@ -13,9 +13,11 @@
                 });
                 Backbone.history.start();
 
-                var app = new AppView({
+                window.APP = new AppView({
                     collection: carreterasList
                 });
+
+                APP.directionsService = new google.maps.DirectionsService();
 
             });
         }
