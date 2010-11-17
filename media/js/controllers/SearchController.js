@@ -6,7 +6,8 @@ define(['models/CarreteraList'], function(CarreteraList) {
             'search/carretera/:query':  'searchCarreteras',
             'search/estado/:query':     'searchEstados',
             'search/municipio/:query':  'searchMunicipios',
-            'search/localidad/:query':  'searchLocalidades'
+            'search/localidad/:query':  'searchLocalidades',
+            'search/ruta/:query':       'searchRutas'
         },
 
         initialize: function(params) {
@@ -30,6 +31,11 @@ define(['models/CarreteraList'], function(CarreteraList) {
 
         searchLocalidades: function(query) {
             this.collection.type = 'localidad';
+            this.search(query);
+        },
+
+        searchRutas: function(query) {
+            this.collection.type = 'ruta';
             this.search(query);
         },
 
