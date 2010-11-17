@@ -45,5 +45,15 @@
         <td><%= ruta ? (ruta.label ? ruta.label : '') : '' %></td>
         <td><%= identificador_nacional ? identificador_nacional : '' %></td>
     </script>
+    <script type="text/template" id="details-tmpl">
+        <h2>Detalle</h2>
+        <div id="detailsLeft">
+        <label>Nombre: </label><%= nombre ? nombre : '' %><br/>
+        <label>Ruta: </label><%= ruta ? (ruta.label ? ruta.label : '') : '' %><br/>
+        </div>
+        <div id="detailsRight">
+        <label>Identificador Nacional: </label><%= identificador_nacional ? identificador_nacional : '' %><br/>
+        </div>
+    </script>
 </div>
 {% endblock %}

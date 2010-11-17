@@ -34,3 +34,8 @@ def searchMunicipio(request, municipio):
     data = encoders.carreterasToJson(carreteras)
     return HttpResponse(data)
 
+def detalleCarretera(request, id_carretera):
+    carretera = Carretera.objects.get(pk=id_carretera)
+    data = encoders.detalleCarreteraToJson(carretera)
+    return HttpResponse(data)
+

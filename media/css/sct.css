@@ -306,3 +306,24 @@ li li {
     border-left: 1px solid #DDD;
     border-right: 1px solid #DDD;
 }
+
+#details {
+    width: 65%;
+}
+
+#details h2 {
+    color: #666;
+    font-size: 16px;
+}
+
+#details label {
+    font-weight: bold;
+}
+
+#detailsLeft {
+    float: left;
+}
+
+#detailsRight {
+    float: right;
+}

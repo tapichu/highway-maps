@@ -21,3 +21,8 @@ def carreterasToJson(carreteras):
     }
     return json.dumps(response)
 
+def detalleCarreteraToJson(carretera):
+    response = carreteraToDict(carretera)
+    # Add details
+    return json.dumps(response)
+
