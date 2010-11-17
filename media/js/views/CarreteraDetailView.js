@@ -45,22 +45,24 @@ define(['models/Tramo', './TramoView'], function(Tramo, TramoView) {
                 if (typeof google !== "undefined") {
                     // Render map
                     var tramos = that.model.get('tramos');
-                    var latlng = that.calculateMapCenter(tramos);
-                    var options = {
-                        zoom: 7,
-                        center: latlng,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    var map = new google.maps.Map(that.$('#map')[0], options);
-                    that.directionDisplay.setMap(map);
+                    if (tramos.length > 0) {
+                        var latlng = that.calculateMapCenter(tramos);
+                        var options = {
+                            zoom: 7,
+                            center: latlng,
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+                        var map = new google.maps.Map(that.$('#map')[0], options);
+                        that.directionDisplay.setMap(map);
 
-                    _.each(tramos, function(tramo) {
-                        that.addTramoMarkers(map, tramo);
-                    });
+                        _.each(tramos, function(tramo) {
+                            that.addTramoMarkers(map, tramo);
+                        });
 
-                    // Add directions for the biggest route
-                    var tramo = _.max(tramos, function(t) { return t.longitud; });
-                    that.calculateRoute(tramo);
+                        // Add directions for the biggest route
+                        var tramo = _.max(tramos, function(t) { return t.longitud; });
+                        that.calculateRoute(tramo);
+                    }
                 }
             });
         },
