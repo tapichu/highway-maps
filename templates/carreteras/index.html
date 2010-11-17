@@ -79,8 +79,8 @@
         <td><%= origen ? origen : '' %></td>
         <td><%= destino ? destino : '' %></td>
         <td><%= longitud ? longitud : '' %> km</td>
-        <td><%= estados ? _.reduce(estados, function(memo, e) { return memo + ', ' + m; }) : '' %></td>
-        <td><%= municipios ? _.reduce(municipios, function(memo, m) { return memo + ', ' + m; }) : '' %></td>
+        <td><%= estados ? estados.join(', ') : '' %></td>
+        <td><%= municipios ? municipios.join(', ') : '' %></td>
         <td><%= localidad ? localidad : '' %></td>
         <td><%= carriles ? carriles : '' %></td>
     </script>

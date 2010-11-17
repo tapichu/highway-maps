@@ -80,7 +80,7 @@ class Tramo(LineGeoLocation):
         return self.nombre
 
     def longitud(self):
-        return float(self.km_fin) - float(self.km_inicio);
+        return (float(self.km_fin * 1000) - float(self.km_inicio * 1000)) / 1000;
 
 class Subtramo(LineGeoLocation):
     tramo = models.ForeignKey(Tramo, related_name='subtramos')
@@ -93,5 +93,5 @@ class Subtramo(LineGeoLocation):
         return self.nombre
 
     def longitud(self):
-        return float(self.km_fin) - float(self.km_inicio);
+        return (float(self.km_fin * 1000) - float(self.km_inicio * 1000)) / 1000;
 
