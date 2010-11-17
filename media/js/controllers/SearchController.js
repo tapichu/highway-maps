@@ -3,6 +3,7 @@ define(['models/CarreteraList'], function(CarreteraList) {
     var SearchController = Backbone.Controller.extend({
         
         routes: {
+            'search/carretera/:query':  'searchCarreteras',
             'search/estado/:query':     'searchEstados',
             'search/municipio/:query':  'searchMunicipios',
             'search/localidad/:query':  'searchLocalidades'
@@ -10,6 +11,11 @@ define(['models/CarreteraList'], function(CarreteraList) {
 
         initialize: function(params) {
             this.collection = params.collection;
+        },
+
+        searchCarreteras: function(query) {
+            this.collection.type = 'carretera';
+            this.search(query);
         },
 
         searchEstados: function(query) {

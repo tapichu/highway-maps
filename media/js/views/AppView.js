@@ -3,7 +3,8 @@ define(['./CarreteraView'], function(CarreteraView) {
     var SEARCH_TYPE = {
         ESTADO: 'porEstado',
         MUNICIPIO: 'porMunicipio',
-        LOCALIDAD: 'porLocalidad'
+        LOCALIDAD: 'porLocalidad',
+        CARRETERA: 'porCarretera'
     };
 
     var AppView = Backbone.View.extend({
@@ -62,6 +63,8 @@ define(['./CarreteraView'], function(CarreteraView) {
                 break;
             case SEARCH_TYPE.MUNICIPIO:
             case SEARCH_TYPE.LOCALIDAD:
+            case SEARCH_TYPE.CARRETERA:
+            case SEARCH_TYPE.CARRETERA:
                 this.estadosSelect.hide();
                 this.searchTextInput.show();
                 break;
@@ -83,6 +86,10 @@ define(['./CarreteraView'], function(CarreteraView) {
             case SEARCH_TYPE.LOCALIDAD:
                 var localidad = this.searchTextInput.val();
                 window.location.hash = 'search/localidad/' + localidad;
+                break;
+            case SEARCH_TYPE.CARRETERA:
+                var carretera = this.searchTextInput.val();
+                window.location.hash = 'search/carretera/' + carretera;
                 break;
             }
         }
