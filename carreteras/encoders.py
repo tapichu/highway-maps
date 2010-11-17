@@ -21,8 +21,30 @@ def carreterasToJson(carreteras):
     }
     return json.dumps(response)
 
+def tramoToDict(tramo):
+    return {
+        'id': tramo.pk,
+        'nombre': tramo.nombre,
+        'estados': [estado.nombre for estado in tramo.estados.all()],
+        'municipios': [municipio.nombre for municipio in tramo.municipios.all()],
+        'localidad': tramo.localidad.nombre,
+        'corredor': str(tramo.corredor),
+        'tipo_red': tramo.tipo_red,
+        'km_inicio': float(str(tramo.km_inicio)),
+        'km_fin': float(str(tramo.km_fin)),
+        'longitud': tramo.longitud(),
+        'carriles': tramo.carriles,
+        'cuerpos': tramo.cuerpos,
+        'origen': tramo.origen,
+        'destino': tramo.destino,
+        'latitud_inicio': float(str(tramo.latitud_inicio)),
+        'longitud_inicio': float(str(tramo.longitud_inicio)),
+        'latitud_fin': float(str(tramo.latitud_fin)),
+        'longitud_fin': float(str(tramo.longitud_fin))
+    }
+
 def detalleCarreteraToJson(carretera):
     response = carreteraToDict(carretera)
-    # Add details
+    response['tramos'] = [tramoToDict(tramo) for tramo in carretera.tramos.all()]
     return json.dumps(response)
 
