@@ -1,4 +1,5 @@
 # Django settings for poc_sct project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/eduardo/Documents/git_repos/sct/poc_sct/db/poc_sct.db',                      # Or path to database file if using sqlite3.
+        'NAME': os.environ['PWD'] + '/db/poc_sct.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -45,7 +46,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/eduardo/Documents/git_repos/sct/poc_sct/media/'
+MEDIA_ROOT = os.environ['PWD'] + '/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -78,7 +79,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'poc_sct.urls'
 
 TEMPLATE_DIRS = (
-    '/home/eduardo/Documents/git_repos/sct/poc_sct/templates',
+    os.environ['PWD'] + '/templates',
 )
 
 INSTALLED_APPS = (

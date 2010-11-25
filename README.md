@@ -10,14 +10,6 @@ I basically wanted an excuse to try out:
 * Backbone.js
 * RequireJS
 
-## Configuration
-
-You need to configure a couple of paths on `settings.py`:
-
-* *DATABASES.default.NAME*: Where the sqlite3 DB will be created.
-* *MEDIA_ROOT*: Full path to the *media* directory on the project's root directory.
-* *TEMPLATE_DIRS*: Full path to the *templates* directory on the project's root directory.
-
 ## Setup
 
 * Install Django (I used version 1.2.3).
