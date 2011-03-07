@@ -65,7 +65,6 @@ define(['./CarreteraView'], function(CarreteraView) {
             case SEARCH_TYPE.MUNICIPIO:
             case SEARCH_TYPE.LOCALIDAD:
             case SEARCH_TYPE.CARRETERA:
-            case SEARCH_TYPE.CARRETERA:
             case SEARCH_TYPE.RUTA:
                 this.estadosSelect.hide();
                 this.searchTextInput.val('');
