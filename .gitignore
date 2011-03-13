@@ -66,3 +66,11 @@ target/
 ##################
 *.bak
 *.orig
+
+# Buildout #
+############
+.installed.cfg
+bin/
+develop-eggs/
+parts/
+
