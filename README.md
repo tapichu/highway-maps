@@ -1,21 +1,33 @@
 # highway-maps
 
-Sample application for searching highways and drawing them on google maps.
+Search highways and draw them on google maps.
 
-## Technologies
+## Tools
 
-I basically wanted an excuse to try out:
+I wanted to play with:
 
 * Django
 * Backbone.js
 * RequireJS
+* Buildout
 
 ## Setup
 
-* Install Django (I used version 1.2.3).
-* Create the database tables with `python manage.py syncdb` (create an admin user when prompted).
-* Load some data into the database `python manage.py loaddata db/prod.json`.
-* Start the development server `python manage.py runserver`.
+* I recommend crating a _virtualenv_ isolated from your system Python:
+    * <code>virtualenv --no-site-packages myenv</code>
+    * <code>cd myenv</code>
+    * <code>source bin/activate</code> (to activate the sandbox)
+    * <code>deactivate</code> (to leave the sandbox)
+* Clone this repository: <code>git clone [URL]</code>
+* Change directory: <code>cd highway-maps</code>
+* Bootstrap _buildout_: <code>python bootstrap.py</code>
+* Run buildout: <code>./bin/buildout</code>
+
+## Running the application
+
+* Create the database tables: <code>./bin/django syncdb</code> (create an admin user when prompted)
+* Populate the database: <code>./bin/django loaddata project/db/prod.json</code>
+* Start the development server: <code>./bin/django runserver</code>
 
 ## URLs
 
