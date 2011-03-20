@@ -60,6 +60,6 @@ class CarreterasToJsonMethod(EncodersTestCase):
     def test_should_contain_a_list_of_carreteras(self):
         json_string = encoders.carreterasToJson(self.carreteras)
         carreteras = json.loads(json_string, object_hook=as_carretera_list)
-        self.assertEquals(len(carreteras), 2)
+        self.assertEqual(len(carreteras), 2)
         self.assertIsInstance(carreteras[0], Carretera)
         self.assertIsInstance(carreteras[0].ruta, Ruta)
