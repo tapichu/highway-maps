@@ -77,4 +77,5 @@ parts/
 # Distutils / setuptools #
 ##########################
 *.egg-info
+*/**/build/*
 
