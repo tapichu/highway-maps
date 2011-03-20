@@ -26,7 +26,7 @@ I wanted to play with:
 ## Running the application
 
 * Create the database tables: <code>./bin/django syncdb</code> (create an admin user when prompted)
-* Populate the database: <code>./bin/django loaddata project/db/prod.json</code>
+* Populate the database: <code>./bin/django loaddata devel</code>
 * Start the development server: <code>./bin/django runserver</code>
 
 ## URLs
